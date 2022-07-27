@@ -21,19 +21,23 @@ class TodoStore {
   }
   
   setToShow(val:string){
-    this.toShow = val
+    this.toShow = val;
   }
 
   get completedTodos() {
     return this.todos.filter((el) => el.completed);
   }
 
-  get incompletedTodosCount() {
-    return this.todos.filter((el) => !el.completed).length;
+  get completedTodosCount() {
+    return this.todos.filter((el) => el.completed).length;
   }
 
-  get incompletedTodos() {
-    return this.todos.filter((el) => !el.completed);
+  get todosCount(){
+    return this.todos.length;
+  }
+
+  get incompletedTodos(){
+    return this.todos.filter(el => !el.completed)
   }
 }
 
