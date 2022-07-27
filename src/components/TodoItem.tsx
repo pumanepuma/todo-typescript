@@ -12,7 +12,7 @@ const TodoItem: React.FC<TodoItemProps> = observer(({todo}) => {
   }
   
   return (
-    <div id={todo.id.toString()} className='todoItemContainer'>
+    <div id={todo.id.toString()} className='TodoItemContainer'>
       <div className='todoItem'>
         <button onClick={deleteTodoItem}>X</button>
         <span style={todo.completed ? {textDecoration:'line-through'}:{}}

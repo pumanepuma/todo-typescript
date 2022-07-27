@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { SyntheticEvent, useState } from "react";
 import TodoItem from "./TodoItem";
 import TodoStore from "../store/TodoStore";
 import {nanoid} from 'nanoid'
@@ -9,6 +9,7 @@ import { observer } from "mobx-react-lite";
 const TodoList = observer(() => {
   const [newTodo, setNewTodo] = useState("")
   const [errorMessage,setErrorMessage] = useState('')
+
   const addTodo = () => {
     let validationResult = InputValidator.checkInput(newTodo)
     if(validationResult.isValid){
@@ -36,13 +37,23 @@ const TodoList = observer(() => {
     }
   }
 
+  const clear = () => {
+    setNewTodo('')
+    setErrorMessage('')
+  }
+  
+  const handleSubmit = (event : SyntheticEvent) => {
+    event.preventDefault()
+    addTodo()
+  }
+
   return (
     <div className="TodosContainer">
       {getTodos().map((todo) => (
         <TodoItem todo={todo} key={nanoid()}/>
       ))}
       <div className="TaskInputContainer">
-        <form>
+        <form onSubmit={(e) => handleSubmit(e)}>
           <input
             type="text"
             value={newTodo}
@@ -50,11 +61,13 @@ const TodoList = observer(() => {
             placeholder="What needs to be done?"
           />
         </form>
-        <button onClick={addTodo}>Add</button>
-        <button onClick={() => setNewTodo('')}>Clear</button>
+        <div className='input-control'>
+          <button onClick={addTodo}>Add</button>
+          <button onClick={clear}>Clear</button>
+        </div>
       </div>
       {
-          errorMessage && <p className='error-message'>{errorMessage}</p>
+          errorMessage && <p className='error-message'>Error: {errorMessage}</p>
       }
     </div>
   )
