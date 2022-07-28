@@ -1,0 +1,101 @@
+$primary: #e1dad2;
+$highlight: #d37556;
+$dark: #0c2431;
+
+%flex-row{
+  display: flex;
+  flex-direction:row;
+  align-items:center;
+}
+
+%flex-column{
+  display:flex;
+  flex-direction:column;
+}
+
+%no-border{
+  border:none;
+  outline:none;
+  background:transparent;
+}
+
+button{
+    @extend %no-border;
+    font-family: 'Edu VIC WA NT Beginner', cursive;
+    cursor:pointer;
+    font-size:24px;
+    color: $dark;
+}
+
+h1{
+    color: $highlight;
+}
+
+form{ 
+    @extend %flex-row;
+    width:100%;
+    background:white;
+    justify-content:space-between;
+    border-radius: 5px 5px 0px 0px;
+}
+
+input{
+    @extend %no-border;
+    font-size:24px;
+    font-family: 'Edu VIC WA NT Beginner', cursive;
+    min-width:121px;
+    width:95%;
+    padding-left:10px;
+}
+
+.wrap { 
+    white-space: pre-wrap;      /* CSS3 */   
+    white-space: -moz-pre-wrap; /* Firefox */    
+    white-space: -pre-wrap;     /* Opera <7 */   
+    white-space: -o-pre-wrap;   /* Opera 7 */    
+    word-wrap: break-word;      /* IE */
+ }
+
+.App{
+    @extend %flex-column;
+    text-align:center;
+    align-items:center;
+    padding:5%;
+    color: $dark;
+    width: 100%;
+    font-family: 'Edu VIC WA NT Beginner', cursive;
+    font-size:24px;
+}
+
+.Main{
+    @extend %flex-column;
+    background: $primary;
+    box-shadow: 5px 5px 5px $dark;
+    padding:5%;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.items-container{
+    @extend %flex-column;
+    background:white;
+    border-radius: 0px 0px 5px 5px;
+    width:100%;
+}
+
+.item{
+    @extend %flex-row;
+    justify-content: space-between;
+}
+.item-title{
+    max-width:70%;
+    min-width: 36px;
+    text-align:left;
+    padding-left:10px;
+}
+
+.controls{
+    @extend %flex-row;
+    justify-content:space-between;
+}
+

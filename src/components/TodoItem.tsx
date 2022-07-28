@@ -12,14 +12,17 @@ const TodoItem: React.FC<TodoItemProps> = observer(({todo}) => {
   }
   
   return (
-    <div id={todo.id.toString()} className='TodoItemContainer'>
-      <div className='todoItem'>
-        <button onClick={deleteTodoItem}>X</button>
-        <span style={todo.completed ? {textDecoration:'line-through'}:{}}
-          className='todo-title'>{todo.title}</span>
-      </div>
-      <button onClick={() => TodoStore.completeTodo(todo)}
-        style={todo.completed ? {color:'green'}: {}}>done</button>
+    <div id={todo.id.toString()} className='item'>
+        <div style={todo.completed ? {textDecoration:'line-through'}:{}}
+          className='item-title wrap'>{todo.title}
+        </div>
+        <div>
+          <button onClick={() => TodoStore.completeTodo(todo)}
+            style={todo.completed ? {color:'green'}: {}}>done</button>
+          <button onClick={deleteTodoItem}>x</button>
+        </div>
+          
+      
     </div>
   )
 })

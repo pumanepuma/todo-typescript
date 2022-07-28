@@ -5,6 +5,7 @@ import {nanoid} from 'nanoid'
 import InputValidator from "../validators/InputValidator";
 
 import { observer } from "mobx-react-lite";
+import Controls from "./Controls";
 
 const TodoList = observer(() => {
   const [newTodo, setNewTodo] = useState("")
@@ -48,11 +49,8 @@ const TodoList = observer(() => {
   }
 
   return (
-    <div className="TodosContainer">
-      {getTodos().map((todo) => (
-        <TodoItem todo={todo} key={nanoid()}/>
-      ))}
-      <div className="TaskInputContainer">
+    <div className="Main">
+      <div className="item-input">
         <form onSubmit={(e) => handleSubmit(e)}>
           <input
             type="text"
@@ -60,15 +58,15 @@ const TodoList = observer(() => {
             onChange={(e) => setNewTodo(e.target.value)}
             placeholder="What needs to be done?"
           />
-        </form>
-        <div className='input-control'>
           <button onClick={addTodo}>Add</button>
-          <button onClick={clear}>Clear</button>
-        </div>
+        </form>
       </div>
-      {
-          errorMessage && <p className='error-message'>Error: {errorMessage}</p>
-      }
+      <div className="items-container">
+        {getTodos().map((todo) => (
+          <TodoItem todo={todo} key={nanoid()}/>
+        ))}
+      </div>
+      <Controls />
     </div>
   )
 })

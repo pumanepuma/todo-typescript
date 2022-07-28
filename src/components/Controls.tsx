@@ -8,7 +8,7 @@ const Controls = observer(() => {
   }
   
   return (
-    <div className='Controls'>
+    <div className='controls'>
       <p>Progress: {TodoStore.completedTodosCount}/{TodoStore.todosCount}</p>
       <div className='control-buttons'>
         <button onClick={() => setAll("all")}>All</button>

@@ -1,0 +1,16 @@
+%flex-row{
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+}
+
+body{
+  @extend %flex-row;
+  height:100vh;
+}
+
+#root{
+  @extend %flex-row;
+  width: 90%;
+}
+
