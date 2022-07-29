@@ -36,7 +36,7 @@ class TodoStore {
     return this.todos.length;
   }
 
-  get incompletedTodos(){
+  get activeTodos(){
     return this.todos.filter(el => !el.completed)
   }
 }
