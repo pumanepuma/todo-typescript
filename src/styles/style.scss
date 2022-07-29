@@ -3,113 +3,117 @@ $highlight: #DA3E52;
 $dark: #6B717E;
 $basic-font: 'Montserrat', sans-serif;
 
-%flex-row{
-  display: flex;
-  flex-direction:row;
-  align-items:center;
+%flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
-%flex-column{
-  display:flex;
-  flex-direction:column;
+%flex-column {
+    display: flex;
+    flex-direction: column;
 }
 
-%no-border{
-  border:none;
-  outline:none;
-  background:transparent;
+%no-border {
+    border: none;
+    outline: none;
+    background: transparent;
 }
 
-.App{
-  @extend %flex-column;
-  text-align:center;
-  align-items:center;
-  padding:5%;
-  color: $dark;
-  width: 100%;
-  font-family:$basic-font;
-  font-size:24px;
-}
-
-button{
-  @extend %no-border;
-  font-family: $basic-font;
-  cursor:pointer;
-  font-size:24px;
-  color: $dark;
-}
-
-h1{
-  color: $highlight;
-}
-
-input{
-  @extend %no-border;
-  font-size:24px;
-  font-family: $basic-font;
-  min-width:121px;
-  width:95%;
-  padding-left:10px;
-  color:$dark;
-}
-
-form{ 
-  @extend %flex-row;
-  width:100%;
-  background:white;
-  justify-content:space-between;
-  border-radius: 5px 5px 0px 0px;
-}
-
-.Main{
-  @extend %flex-column;
-  background: $primary;
-  box-shadow: 5px 5px 5px $dark;
-  padding:5%;
-  border-radius: 5px;
-  width: 100%;
-}
-
-.item{
-    display:flex;
-    flex-direction:row;
-    align-items:flex-start;
-    border-top: solid $primary 1px;
-    justify-content:space-between;
-    padding: 5px 10px;
-  }
-  
-  .item-title{
-    max-width:70%;
-    min-width: 36px;
-    text-align:left;
-  }
-  
-  .wrap { 
-     white-space: pre-wrap;      /* CSS3 */   
-     white-space: -moz-pre-wrap; /* Firefox */    
-     white-space: -pre-wrap;     /* Opera <7 */   
-     white-space: -o-pre-wrap;   /* Opera 7 */    
-     word-wrap: break-word;      /* IE */
-  }
-  
-  .items-container{
+.App {
     @extend %flex-column;
-    background:white;
+    text-align: center;
+    align-items: center;
+    padding: 5%;
+    color: $dark;
+    width: 100%;
+    font-family: $basic-font;
+    font-size: 24px;
+}
+
+button {
+    @extend %no-border;
+    font-family: $basic-font;
+    cursor: pointer;
+    font-size: 24px;
+    color: $dark;
+}
+
+h1 {
+    color: $highlight;
+}
+
+input {
+    @extend %no-border;
+    font-size: 24px;
+    font-family: $basic-font;
+    min-width: 121px;
+    width: 95%;
+    padding-left: 10px;
+    color: $dark;
+}
+
+form {
+    @extend %flex-row;
+    width: 100%;
+    background: white;
+    justify-content: space-between;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.Main {
+    @extend %flex-column;
+    background: $primary;
+    box-shadow: 5px 5px 5px $dark;
+    padding: 5%;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    border-top: solid $primary 1px;
+    justify-content: space-between;
+    padding: 5px 10px;
+}
+
+.item-title {
+    max-width: 70%;
+    min-width: 36px;
+    text-align: left;
+}
+
+.wrap {
+    white-space: pre-wrap;
+    /* CSS3 */
+    white-space: -moz-pre-wrap;
+    /* Firefox */
+    white-space: -pre-wrap;
+    /* Opera <7 */
+    white-space: -o-pre-wrap;
+    /* Opera 7 */
+    word-wrap: break-word;
+    /* IE */
+}
+
+.items-container {
+    @extend %flex-column;
+    background: white;
     border-radius: 0px 0px 5px 5px;
-    width:100%;
-  }
-
-  .controls{
-  @extend %flex-row;
-  justify-content:space-between;
+    width: 100%;
 }
 
-.filter:focus{
-  text-decoration:underline;
+.controls {
+    @extend %flex-row;
+    justify-content: space-between;
 }
 
-.error-message{
-  color:$highlight;
+.filter:focus {
+    text-decoration: underline;
 }
 
+.error-message {
+    color: $highlight;
+}

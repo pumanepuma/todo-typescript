@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useEffect, useState } from "react";
+import { SyntheticEvent, useState } from "react";
 import Item from "./TodoItem";
 import TodoStore from "../store/TodoStore";
 import InputValidator from "../validators/InputValidator";
