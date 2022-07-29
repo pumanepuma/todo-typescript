@@ -9,7 +9,6 @@ import Controls from "./Controls";
 const Main = observer(() => {
   
   const [newTodo,setNewTodo] = useState('')
-  const [todos,setTodos] = useState([])
   const [errorMessage,setErrorMessage] = useState('')
   
   

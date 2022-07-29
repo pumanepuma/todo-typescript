@@ -7,7 +7,6 @@ import { observer } from "mobx-react-lite";
 const TodoItem: React.FC<TodoItemProps> = observer(({todo}) => {
   
   const deleteTodoItem = () => {
-    console.log('deleting')
     TodoStore.deleteTodo(todo)
   }
   
