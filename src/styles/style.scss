@@ -1,11 +1,13 @@
-$primary: #e1dad2;
-$highlight: #d37556;
-$dark: #0c2431;
+$primary:  #d5e9dd;
+$highlight: #154042;
+$dark: #11201e;
+$basic-font: 'Montserrat', sans-serif;
 
 %flex-row{
   display: flex;
   flex-direction:row;
   align-items:center;
+  justify-content:space-between;
 }
 
 %flex-column{
@@ -21,7 +23,7 @@ $dark: #0c2431;
 
 button{
     @extend %no-border;
-    font-family: 'Edu VIC WA NT Beginner', cursive;
+    font-family: $basic-font;
     cursor:pointer;
     font-size:24px;
     color: $dark;
@@ -31,18 +33,10 @@ h1{
     color: $highlight;
 }
 
-form{ 
-    @extend %flex-row;
-    width:100%;
-    background:white;
-    justify-content:space-between;
-    border-radius: 5px 5px 0px 0px;
-}
-
 input{
     @extend %no-border;
     font-size:24px;
-    font-family: 'Edu VIC WA NT Beginner', cursive;
+    font-family: $basic-font;
     min-width:121px;
     width:95%;
     padding-left:10px;
@@ -63,7 +57,7 @@ input{
     padding:5%;
     color: $dark;
     width: 100%;
-    font-family: 'Edu VIC WA NT Beginner', cursive;
+    font-family: $basic-font;
     font-size:24px;
 }
 
@@ -76,6 +70,13 @@ input{
     width: 100%;
 }
 
+.item-input{
+    @extend %flex-row;
+    width:100%;
+    background:white;
+    border-radius: 5px 5px 0px 0px;
+}
+
 .items-container{
     @extend %flex-column;
     background:white;
@@ -85,7 +86,7 @@ input{
 
 .item{
     @extend %flex-row;
-    justify-content: space-between;
+    border-top: solid 1px $primary;
 }
 .item-title{
     max-width:70%;
@@ -96,6 +97,9 @@ input{
 
 .controls{
     @extend %flex-row;
-    justify-content:space-between;
+}
+
+.error-message{
+    color:$highlight;
 }
 

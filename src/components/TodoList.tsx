@@ -1,4 +1,4 @@
-import { SyntheticEvent, useState } from "react";
+import { SyntheticEvent, useEffect, useState } from "react";
 import TodoItem from "./TodoItem";
 import TodoStore from "../store/TodoStore";
 import {nanoid} from 'nanoid'
@@ -12,19 +12,12 @@ const TodoList = observer(() => {
   const [errorMessage,setErrorMessage] = useState('')
 
   const addTodo = () => {
-    let validationResult = InputValidator.checkInput(newTodo)
-    if(validationResult.isValid){
-      TodoStore.addTodo({
-        title: newTodo,
-        completed: false,
-        id: new Date().getTime()
-      });
-      setNewTodo("")
-      setErrorMessage('')
+    const validation = InputValidator.checkInput(newTodo)
+    if(validation.isValid){
+      TodoStore.addTodo({title:newTodo,completed:false,id:new Date().getTime()})
+      setNewTodo('')
     }
-    else{
-      setErrorMessage(validationResult.errorMessage)
-    }
+    setErrorMessage(validation.errorMessage)
   }
 
   const getTodos = () => {
@@ -38,20 +31,10 @@ const TodoList = observer(() => {
     }
   }
 
-  const clear = () => {
-    setNewTodo('')
-    setErrorMessage('')
-  }
-  
-  const handleSubmit = (event : SyntheticEvent) => {
-    event.preventDefault()
-    addTodo()
-  }
-
   return (
     <div className="Main">
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
       <div className="item-input">
-        <form onSubmit={(e) => handleSubmit(e)}>
           <input
             type="text"
             value={newTodo}
@@ -59,7 +42,6 @@ const TodoList = observer(() => {
             placeholder="What needs to be done?"
           />
           <button onClick={addTodo}>Add</button>
-        </form>
       </div>
       <div className="items-container">
         {getTodos().map((todo) => (

@@ -5,16 +5,20 @@ type validationResultType = {
 
 class InputValidator{
     checkInput(input:string){
-        let res : validationResultType = {isValid:true, errorMessage: ''}
-        if(input.trim().length === 0) {
-            res = {isValid : false, errorMessage : "Todo title can't be empty"}
-            return res
+        const res: validationResultType = {isValid:false,errorMessage:''};
+        if(input.trim().length == 0){
+            res.isValid = false;
+            res.errorMessage = 'todo title can not be empty'
         }
-        else if(input.length > 255){
-            res = {isValid : false, errorMessage : "Todo title is too long"}
-            return res
+        else if(input.trim().length > 255){
+            res.isValid = false;
+            res.errorMessage = 'todo title is too long'
         }
-        else return res
+        else{
+            res.isValid = true;
+            res.errorMessage = ''
+        }
+        return res
     }
 }
 
