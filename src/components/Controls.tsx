@@ -11,9 +11,12 @@ const Controls = observer(() => {
     <div className='controls'>
       <p>Progress: {TodoStore.completedTodosCount}/{TodoStore.todosCount}</p>
       <div className='control-buttons'>
-        <button onClick={() => setAll("all")}>All</button>
-        <button onClick={() => setAll("active")}>Active</button>
-        <button onClick={() => setAll("completed")}>Completed</button>
+        <button onClick={() => setAll("all")} 
+        style={TodoStore.toShow === 'all' ? {textDecoration:'underline'} : {}}>All</button>
+        <button onClick={() => setAll("active")}
+        style={TodoStore.toShow === 'active' ? {textDecoration:'underline'} : {}}>Active</button>
+        <button onClick={() => setAll("completed")}
+        style={TodoStore.toShow === 'completed' ? {textDecoration:'underline'} : {}}>Completed</button>
       </div>
     </div>
   )

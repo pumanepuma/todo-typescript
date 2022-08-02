@@ -1,6 +1,5 @@
 import './styles/style.scss';
 import TodoList from './components/TodoList';
-import Controls from './components/Controls';
 
 function App() {
   return (

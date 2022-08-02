@@ -1,19 +1,25 @@
 import { makeAutoObservable } from "mobx";
 import { TodoType } from "../types/TodoTypes";
 
+const saved : string | null = localStorage.getItem('todos')
+let init : Array<TodoType> = []
+if(saved) init = JSON.parse(saved)
+
 class TodoStore {
-  todos: any[] = [];
-  toShow = "all";
+  todos : Array<TodoType>  = init
+  toShow = localStorage.getItem('toShow') || 'all';
   constructor() {
     makeAutoObservable(this);
   }
 
   addTodo(todo: TodoType) {
     this.todos.push(todo);
+    localStorage.setItem('todos', JSON.stringify(this.todos))
   }
 
   deleteTodo(todo: TodoType) {
     this.todos = this.todos.filter((t) => t.id !== todo.id);
+    localStorage.setItem('todos', JSON.stringify(this.todos))
   }
 
   completeTodo(todo: TodoType) {
@@ -22,6 +28,7 @@ class TodoStore {
   
   setToShow(val:string){
     this.toShow = val;
+    localStorage.setItem('toShow',this.toShow)
   }
 
   get completedTodos() {
